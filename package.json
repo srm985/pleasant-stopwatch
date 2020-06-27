@@ -1,0 +1,107 @@
+{
+  "author": "Sean McQuay",
+  "bugs": {
+    "url": "https://github.com/srm985/pleasant-stopwatch/issues"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "history": "^5.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-ga": "^3.0.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  },
+  "description": "A simple neumorphic stopwatch app providing a pleasant user experience.",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.6.3",
+    "autoprefixer": "^9.7.1",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^26.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-es2017-object-entries": "0.0.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "current-git-branch": "^1.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-sort-destructure-keys": "^1.3.4",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.2",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.0.2",
+    "postcss-loader": "^3.0.0",
+    "react-hot-loader": "^4.12.21",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.17.2",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "homepage": "https://github.com/srm985/pleasant-stopwatch#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "cross-env FORCE_COLOR=true lint-staged",
+      "pre-push": "node ./scripts/branchCheck.js"
+    }
+  },
+  "keywords": [
+    "react",
+    "neumorphic",
+    "android",
+    "javascript",
+    "scss",
+    "html",
+    "cordova"
+  ],
+  "license": "ISC",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "*.scss": [
+      "stylelint --syntax scss --color --allow-empty-input --fix"
+    ]
+  },
+  "main": "index.js",
+  "name": "pleasant-stopwatch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srm985/pleasant-stopwatch.git"
+  },
+  "scripts": {
+    "build": "concurrently --raw \"npm:lint --silent\" \"npm:test --silent\" && webpack --mode production --static_build",
+    "develop": "cross-env NODE_ENV=development concurrently --raw \"npm:lint --silent\" \"webpack-dev-server --open --config ./webpack.config.js --mode development --port 3000\" \"npm:watch --silent\"",
+    "lint": "concurrently --raw \"npm:lint:js --silent\" \"npm:lint:scss --silent\"",
+    "lint:fix": "concurrently --raw \"eslint ./*.js src/**/*.js scripts/**/*.js --fix\" \"stylelint src/**/*.scss --syntax scss --color --allow-empty-input --fix\"",
+    "lint:js": "eslint ./*.js src/**/*.js scripts/**/*.js",
+    "lint:scss": "stylelint src/**/*.scss --syntax scss --color --allow-empty-input",
+    "start": "npm run develop",
+    "test": "jest src/ --passWithNoTests",
+    "update": "npm update --save/--save-dev",
+    "watch": "concurrently --raw \"npm:watch:js --silent\" \"npm:watch:scss --silent\"",
+    "watch:js": "onchange --delay 500 \"src/**/*.js\" -- npm run lint:js --silent",
+    "watch:scss": "onchange --delay 500 \"src/**/*.scss\" -- npm run lint:scss --silent",
+    "watch:test": "jest --watch src/ --passWithNoTests"
+  },
+  "version": "1.0.0"
+}
