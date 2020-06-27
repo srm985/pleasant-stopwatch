@@ -1,0 +1,39 @@
+/* stylelint-disable  color-no-hex */
+
+// Minimum Spacing Unit
+$planck-length: 8px;
+
+// Breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-extra-large: 1200px;
+
+// Container Maximum Widths
+$max-width-small: 540px;
+$max-width-medium: 720px;
+$max-width-large: 960px;
+$max-width-extra-large: 1140px;
+
+// Application Colors
+$color-black: #31456a;
+$color-gradient-dark: #e3edf7;
+$color-gray-dark: #b8c7d7;
+$color-gray-light: #e3edf7;
+$color-orange: #eb5757;
+$color-red: #f7455c;
+$color-white: #fff;
+
+// Font Families
+$font-stack: 'Roboto', sans-serif;
+$font-stack-mono: 'Roboto Mono', monospace;
+
+// Font Sizes
+$font-size-large: 22px;
+$font-size-regular: 16px;
+$font-size-small: 12px;
+
+// Bezel Constants
+$bezel-diameter: $planck-length * 40;
+
+/* stylelint-enable */

@@ -1,0 +1,16 @@
+@import '../../styles/constants';
+
+$shadow: $planck-length;
+$blur: $planck-length * 2;
+
+.DialBezelComponent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: $bezel-diameter;
+    height: $bezel-diameter;
+
+    border-radius: 50%;
+    box-shadow: $shadow $shadow $blur rgba($color-black, 0.6), -#{$shadow} -#{$shadow} $blur rgba($color-white, 0.6);
+}

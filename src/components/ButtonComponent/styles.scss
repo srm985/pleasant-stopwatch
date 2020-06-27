@@ -1,0 +1,32 @@
+@import '../../styles/constants';
+
+$shadow: $planck-length;
+$blur: $planck-length;
+
+.ButtonComponent {
+    font-weight: bold;
+    font-size: $font-size-large;
+
+    border: none;
+    cursor: pointer;
+
+    &--primary {
+        min-height: #{$planck-length * 6};
+        padding: $planck-length #{$planck-length * 2};
+
+        color: $color-black;
+
+        background-color: transparent;
+        border-radius: #{$planck-length * 2};
+        box-shadow: $shadow $shadow $blur rgba($color-black, 0.6), -#{$shadow} -#{$shadow} $blur rgba($color-white, 0.6);
+
+        &-disabled {
+            cursor: default;
+            opacity: 0.6;
+        }
+    }
+
+    &--warning {
+        color: $color-orange;
+    }
+}

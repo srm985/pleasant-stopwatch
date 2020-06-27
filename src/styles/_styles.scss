@@ -1,0 +1,110 @@
+@import './constants';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    color: $color-black;
+    font-family: $font-stack;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span {
+    margin: 0;
+
+    font-family: $font-stack;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 48px;
+    letter-spacing: 0;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        font-weight: bold;
+        font-size: 60px;
+        line-height: 80px;
+        letter-spacing: 1.2;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        font-weight: bold;
+        font-size: 38px;
+        line-height: 48px;
+        letter-spacing: 0;
+    }
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0;
+    }
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0;
+    }
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0;
+    }
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5;
+}
+
+body,
+p {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+}

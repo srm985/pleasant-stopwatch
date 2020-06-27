@@ -17,7 +17,7 @@ module.exports = () => {
 
     if (isDevelopment || isStaticBuild) {
         plugins.push(new HtmlWebpackPlugin({
-            favicon: './src/assets/icons/favicon.png',
+            // favicon: './src/assets/icons/favicon.png',
             filename: 'index.html',
             path: path.join(__dirname, '../dist/'),
             template: './src/index.html'

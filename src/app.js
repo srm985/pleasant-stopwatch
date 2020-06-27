@@ -1,7 +1,9 @@
 import React from 'react';
 
+import Stopwatch from './views/StopwatchView';
+
 const App = () => (
-    <p>hello world</p>
+    <Stopwatch />
 );
 
 export default App;

@@ -1,0 +1,21 @@
+@import '../../styles/constants';
+
+.ButtonGroupComponent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    & > button {
+        flex: 1;
+        margin-right: #{$planck-length * 2};
+        margin-left: #{$planck-length * 2};
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

@@ -4,6 +4,18 @@
         "jest": true
     },
     "extends": "airbnb",
+    "overrides": [
+        {
+            "files": [
+                "src/components/ButtonComponent/index.js"
+            ],
+            "rules": {
+                "react/button-has-type": [
+                    0
+                ]
+            }
+        }
+    ],
     "parser": "babel-eslint",
     "plugins": [
         "import",
