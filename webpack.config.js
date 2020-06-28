@@ -69,8 +69,7 @@ module.exports = () => {
         },
         output: {
             filename: 'index.[hash].js',
-            path: `${__dirname}/dist`,
-            publicPath: '/'
+            path: `${__dirname}/dist`
         },
         plugins,
         resolve: {

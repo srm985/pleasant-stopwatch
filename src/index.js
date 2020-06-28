@@ -3,9 +3,19 @@ import ReactDOM from 'react-dom';
 
 import App from './app';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
+const startApplication = () => {
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    );
+};
 
-module.hot.accept();
+if (!window.cordova) {
+    startApplication();
+} else {
+    document.addEventListener('deviceready', startApplication, false);
+}
+
+if (module.hot) {
+    module.hot.accept();
+}

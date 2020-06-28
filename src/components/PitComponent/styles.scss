@@ -1,0 +1,27 @@
+@import '../../styles/constants';
+
+$shadow: $planck-length / 2;
+$blur: $planck-length;
+
+.PitComponent {
+    box-sizing: border-box;
+    width: 100%;
+    padding: #{$planck-length * 2};
+    overflow-y: auto;
+
+    background-color: transparent;
+    border-radius: $planck-length;
+    box-shadow: $shadow $shadow $blur rgba($color-black, 1) inset, -#{$shadow} -#{$shadow} $blur rgba($color-white, 1) inset;
+
+    & > * {
+        margin-bottom: #{$planck-length * 3};
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &--grow {
+        flex: 1;
+    }
+}

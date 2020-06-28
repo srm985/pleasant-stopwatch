@@ -14,6 +14,8 @@ $tick-offset: 360deg / $tick-quantity;
     height: 100%;
 
     border-radius: 50%;
+    outline: none;
+    cursor: pointer;
 
     &__tick-ring {
         position: absolute;
