@@ -10,4 +10,8 @@
     padding: #{$planck-length * 3};
 
     background-color: $color-gradient-dark;
+
+    &__header {
+        align-self: flex-start;
+    }
 }

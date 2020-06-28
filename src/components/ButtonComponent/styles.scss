@@ -11,11 +11,13 @@ $blur: $planck-length;
     cursor: pointer;
 
     &--primary {
+        box-sizing: border-box;
         min-height: #{$planck-length * 6};
         padding: $planck-length #{$planck-length * 2};
 
         color: $color-black;
 
+        background: linear-gradient(to bottom right, rgba($color-black, 0.05), rgba($color-white, 0.9));
         background-color: transparent;
         border-radius: #{$planck-length * 2};
         box-shadow: $shadow $shadow $blur rgba($color-black, 0.6), -#{$shadow} -#{$shadow} $blur rgba($color-white, 0.6);

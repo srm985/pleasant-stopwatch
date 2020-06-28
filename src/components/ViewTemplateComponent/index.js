@@ -22,8 +22,14 @@ const ViewTemplateComponent = (props) => {
         viewName
     );
 
+    const templateHeaderClassNames = classNames(
+        `${displayName}__header`,
+        'mb--3'
+    );
+
     return (
         <main className={componentClassNames}>
+            <h1 className={templateHeaderClassNames}>{'Pleasant Stopwatch'}</h1>
             {children}
         </main>
     );

@@ -11,6 +11,7 @@ $blur: $planck-length * 2;
     width: $bezel-diameter;
     height: $bezel-diameter;
 
+    background: linear-gradient(to bottom right, rgba($color-black, 0.05), rgba($color-white, 0.9));
     border-radius: 50%;
-    box-shadow: $shadow $shadow $blur rgba($color-black, 0.6), -#{$shadow} -#{$shadow} $blur rgba($color-white, 0.6);
+    box-shadow: $shadow $shadow $blur rgba($color-black, 0.6), -#{$shadow} -#{$shadow} $blur rgba($color-white, 0.6), 2px 2px 2px rgba($color-white, 1) inset, -2px -2px 2px rgba($color-black, 0.4) inset;
 }

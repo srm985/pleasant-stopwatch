@@ -38,9 +38,10 @@ $tick-offset: 360deg / $tick-quantity;
 
             background-color: rgba($color-black, 0.2);
             border: solid 1px rgba($color-black, 0.1);
-            transform: translateY(-(($bezel-diameter / 2) - ($planck-length * 3)));
+            transform: translateY(-(($bezel-diameter / 2) - ($planck-length * 2)));
 
-            transition: background-color ease-in-out 0.2s;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
 
             content: '';
         }
@@ -48,12 +49,15 @@ $tick-offset: 360deg / $tick-quantity;
         @for $i from 0 to $tick-quantity {
             &-#{$i} {
                 transform: rotate($tick-offset * $i);
-            }
-        }
 
-        &--ticked {
-            &::before {
-                background-color: $color-white;
+                &--ticking {
+                    &::before {
+                        background-color: $color-white;
+
+                        animation-name: animation-ticking;
+                        animation-delay: 1s * ($i / $tick-quantity);
+                    }
+                }
             }
         }
     }
@@ -64,5 +68,18 @@ $tick-offset: 360deg / $tick-quantity;
         font-weight: bold;
         font-size: 32px;
         font-family: $font-stack-mono;
+    }
+}
+
+@keyframes animation-ticking {
+    0%,
+    60%,
+    100% {
+        background-color: rgba($color-black, 0.2);
+    }
+
+    10%,
+    50% {
+        background-color: $color-white;
     }
 }

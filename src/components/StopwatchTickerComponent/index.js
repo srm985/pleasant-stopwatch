@@ -1,12 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import './styles.scss';
 import classNames from '../../utils/classNames';
+import formatTime from '../../utils/formatTime';
+
+import {
+    KEY_CODE_SPACEBAR
+} from '../../constants';
+
+import './styles.scss';
 
 const StopwatchTickerComponent = (props) => {
     const {
-        elapsedTime
+        elapsedTime,
+        handleClick,
+        isRunning
     } = props;
 
     const {
@@ -15,47 +23,25 @@ const StopwatchTickerComponent = (props) => {
 
     const tickQuantity = 120;
 
-    const formatTime = (timeValue) => {
-        const formattedTime = [];
+    const handleKeyPress = (event) => {
+        const {
+            keyCode
+        } = event;
 
-        let decrementedTime = timeValue;
-
-        const hours = Math.floor(decrementedTime / 360000);
-
-        decrementedTime -= hours * 360000;
-
-        const minutes = Math.floor(decrementedTime / 60000);
-
-        decrementedTime -= minutes * 60000;
-
-        const seconds = Math.floor(timeValue / 1000);
-
-        decrementedTime -= seconds * 1000;
-
-        const milliseconds = decrementedTime;
-
-        formattedTime.push(`00${hours}`.slice(-2));
-        formattedTime.push(`00${minutes % 60}`.slice(-2));
-        formattedTime.push(`00${seconds % 60}`.slice(-2));
-        formattedTime.push(`000${milliseconds}`.slice(-3));
-
-        return `${formattedTime.slice(0, 3).join(':')}.${formattedTime[3]}`;
+        if (keyCode === KEY_CODE_SPACEBAR) {
+            handleClick();
+        }
     };
 
     const renderTickRing = () => {
         const ticks = [];
 
         for (let tickNumber = 0; tickNumber < tickQuantity; tickNumber++) {
-            const percentTimeElapsed = (elapsedTime % 1000) / 1000;
-            const tickNumberRotationalPercentage = tickNumber / tickQuantity;
-
-            const isCurrentlyTicked = percentTimeElapsed >= tickNumberRotationalPercentage;
-
             const tickClassNames = classNames(
                 `${displayName}__tick`,
                 `${displayName}__tick-${tickNumber}`,
                 {
-                    [`${displayName}__tick--ticked`]: isCurrentlyTicked
+                    [`${displayName}__tick-${tickNumber}--ticking`]: isRunning
                 }
             );
 
@@ -75,7 +61,13 @@ const StopwatchTickerComponent = (props) => {
     };
 
     return (
-        <div className={displayName}>
+        <div
+            className={displayName}
+            onClick={handleClick}
+            onKeyUp={handleKeyPress}
+            role={'button'}
+            tabIndex={0}
+        >
             <h2 className={`${displayName}__elapsed-time`}>{formatTime(elapsedTime)}</h2>
             {renderTickRing()}
         </div>
@@ -85,11 +77,15 @@ const StopwatchTickerComponent = (props) => {
 StopwatchTickerComponent.displayName = 'StopwatchTickerComponent';
 
 StopwatchTickerComponent.propTypes = {
-    elapsedTime: PropTypes.number
+    elapsedTime: PropTypes.number,
+    handleClick: PropTypes.func,
+    isRunning: PropTypes.bool
 };
 
 StopwatchTickerComponent.defaultProps = {
-    elapsedTime: 0
+    elapsedTime: 0,
+    handleClick: () => {},
+    isRunning: false
 };
 
 export default StopwatchTickerComponent;
